@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="744.09448"
+   height="1052.3622"
+   id="svg2163">
+  <defs
+     id="defs2166" />
+  <g
+     id="g2386">
+    <rect
+       width="711.12726"
+       height="1015.9796"
+       x="18.485529"
+       y="25.169815"
+       id="rect2159"
+       style="opacity:0.90159996;fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:39.05936432;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="396.29245"
+       y="280.06497"
+       transform="scale(0.9806025,1.0197812)"
+       id="text3132"
+       xml:space="preserve"
+       style="font-size:292.94525146px;font-style:normal;font-weight:normal;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial Black"><tspan
+         x="396.29245"
+         y="280.06497"
+         id="tspan3134"
+         style="font-size:292.94525146px;fill:#f9f9f9;font-family:Arial">93</tspan></text>
+    <text
+       x="199.16153"
+       y="574.37817"
+       transform="scale(0.9806025,1.0197812)"
+       id="text3136"
+       xml:space="preserve"
+       style="font-size:292.94525146px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial Black"><tspan
+         x="199.16153"
+         y="574.37817"
+         id="tspan3138"
+         style="font-size:292.94525146px;fill:#000000;font-family:Arial">Np</tspan></text>
+    <text
+       x="181.41266"
+       y="814.17383"
+       transform="scale(0.8681405,1.1518873)"
+       id="text3140"
+       xml:space="preserve"
+       style="font-size:202.53985596px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial Black"><tspan
+         x="181.41266"
+         y="814.17383"
+         id="tspan3142"
+         style="font-size:202.53985596px;font-family:Arial">(237)</tspan></text>
+  </g>
+</svg>
