@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="kemia.png">
+        <link rel="stylesheet" href="stilus2.css">
+        <link rel="stylesheet" href="stilus.css">
+        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <style>
+        body{
+            /*background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);*/
+            background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgb(37, 37, 143) 35%, rgb(85, 60, 156) 100%);
+            color: whitesmoke;
+        }
+        hr{
+            height:2px;
+            border-width:0;
+            color:white;
+            background-color:white;
+        }
+        
+        button[type=button],button[type=reset] {
+        display: block;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform  0.2s;
+        }
+
+
+        button:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+        filter: invert(100%);
+        }
+    </style>
+    </head>
+
+<py-env>
+    - pandas
+</py-env>
+
+<body>
+    <title>
+        Kémiai Elemek
+        </title>
+
+    <h1>TXT fálj beolvasás sqlite3-al és PyScript felhasználásával</h1>
+
+    <body>
+        <strong><p>A mai nap dátuma: <div id='today'></div></p></strong>
+        <div class="container">
+            <form>
+                <fieldset>
+                    <legend style="margin-top: 25px">Kémiai elem kereső <i>(Epszílon version)</i></legend>
+                    <hr>
+                    <legend style="margin-top: 25px">Légyszíves <strong>írj be nevet,rendszámot,vegyjelet,atomtömeget stb...</strong> <i>a keresőbe</i> <strong>ezután nyomd meg </strong>"Keres" gombot!</legend>
+                    <hr>
+                   <legend style="margin-top: 25px">PL: Au vagy Arany vagy 79 vagy 196.967 vagy Curie...</legend>
+                    <legend style="margin-top: 25px">Már képek is megjelennek az <a style="text-decoration: underline;" href="https://loczylevi.github.io/periodus_kereso_motor/" target="_blank">Epszílon</a> verziótól</legend>
+                    <br>
+                    <legend style="margin-top: 25px">A kép <a style="text-decoration: underline;" href="#ugras_a_kephez" >itt</a> jelenik meg!</legend>
+                    <br>
+            
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-lg mt-4"
+                                for="inputLarge"><strong>Keresés: írjon be egy keresési értéket!</strong></label>
+                                <input class="form-control form-control-lg" type="text"
+                                placeholder="írja be a vegyjelet..." id="bekeres" spellcheck="false"
+                                data-ms-editors="true">
+                            </div>
+                        </div>
+    
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-dismissible alert-danger">
+                                <strong id="msg">Üzenetek itt jelennek meg!  ༼ つ ◕_◕ ༽つ</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-dismissible alert-primary">
+                                <strong>Neve: </strong>
+                                <a href="#" id="kimenet" class="alert-link"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-dismissible alert-primary">
+                                <strong>Rendszám:</strong>
+                                <a href="#" id="kimenet2" class="alert-link"></a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="alert alert-dismissible alert-primary">
+                                    <strong>Vegyjele: </strong>
+                                    <a href="#" id="kimenet3" class="alert-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="alert alert-dismissible alert-primary">
+                                    <strong>Relatív atomtömeg: </strong>
+                                    <a href="#" id="kimenet4" class="alert-link"></a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="col-sm-4">
+                                <div class="alert alert-dismissible alert-primary">
+                                    <strong>Felfedező: </strong>
+                                    <a href="#" id="kimenet5" class="alert-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="alert alert-dismissible alert-primary">
+                                    <strong>Felfedezés éve: </strong>
+                                    <a href="#" id="kimenet6" class="alert-link"></a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="col-sm-4">
+                                <div class="alert alert-dismissible alert-primary">
+                                    <strong>Elektronnegativitás: </strong>
+                                    <a href="#" id="kimenet7" class="alert-link"></a>
+                                </div>
+                            </div>
+                            
+
+                            
+                        
+                               
+    
+                    </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <button type="button" id="run" class="btn btn-light"
+                        pys-onClick="solve" onclick="myFunction()">Keres</button>
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="reset" class="btn btn-dark"
+                        pys-onClick="solve">Törlés</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+    <div class="container">
+    <form>
+        <fieldset>
+    <br>
+    <legend id="ugras_a_kephez" style="margin-top: 25px">A kép itt jelenik meg</legend>
+    <img src="elemek/valami2.png" id="image" class="cicoma text-center" alt="Kémiai elem képe" title="Kémiai elem képe">
+    <br>
+</fieldset>
+</form>
+</div>
+    </body>
+
+    <p id="df"></p>
+
+    <py-script>
+    import datetime as dt
+    pyscript.write('today', dt.date.today().strftime('%A %B %d, %Y'))
+    import sqlite3
+    from pyodide.http import open_url
+    conn = sqlite3.connect(':memory:')
+    cur = conn.cursor()
+    jo = False
+    cur.execute(" DROP TABLE IF EXISTS tb ")
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS tb
+    (ev        INTEGER,
+    elem       TEXT,
+    vegyjel    TEXT,
+    rendszam   TEXT,
+    felfedezo TEXT,
+    atomtomeg TEXT,
+    negativitas TEXT)
+    """)
+
+    #Év;Elem;Vegyjel;Rendszám;Felfedező;Atomtomeg;Negativitas
+    conn.commit()
+    with open_url("https://raw.githubusercontent.com/loczylevi/Kemiai_Elemek/main/tablazat.txt") as f:
+        f.readline()
+        for sor in f:
+            ev, elem, vegyjel, rendszam, felfedezo, atomtomeg, negativitas  = sor.strip().split(';')
+            #print(sor)
+            cur.execute(" INSERT INTO tb VALUES (?,?,?,?,?,?,?) ", ( ev, elem, vegyjel, rendszam, felfedezo, atomtomeg, negativitas))
+    conn.commit()
+
+    #változok megadása
+    bekeres = Element("bekeres")
+    message = Element("msg")
+    kimenet = Element("kimenet")
+    kimenet2 = Element("kimenet2")
+    kimenet3 = Element("kimenet3")
+    kimenet4 = Element("kimenet4")
+    kimenet5 = Element("kimenet5")
+    kimenet6 = Element("kimenet6")
+    kimenet7 = Element("kimenet7")
+    kimenet8 = Element("kimenet8")
+
+    msg = cur.execute("SELECT ev FROM tb WHERE ev = 1953")
+    #print(msg.fetchall())
+    kimenet.write(msg)
+    #vegyjel = "Ag"
+    #kereso = cur.execute(" SELECT * FROM  tb WHERE vegyjel =? ",(vegyjel,))
+    #print(kereso.fetchall())
+
+    def solve(*args, **kwargs): 
+        vegyjel = str(bekeres.value)
+        vegyjel = vegyjel.lower()
+        vegyjel = vegyjel.capitalize()
+        #kimenet.write(vegyjel)
+        kereso = cur.execute(" SELECT * FROM  tb WHERE vegyjel =? OR ev =? OR elem =? OR rendszam =? OR felfedezo =? OR atomtomeg =? OR negativitas =?",(vegyjel,vegyjel,vegyjel,vegyjel,vegyjel,vegyjel,vegyjel))
+        #print(kereso)
+        lista1 = []
+        for sor in kereso:
+            lista1.append(sor)
+
+        
+
+        if len(lista1) > 0:
+            jo = True
+            kimenet.write(lista1[0][1])
+            kimenet2.write(lista1[0][3]) 
+            kimenet3.write(lista1[0][2])
+            kimenet4.write(lista1[0][5])
+            kimenet5.write(lista1[0][4])
+            kimenet6.write(lista1[0][0])
+            kimenet7.write(lista1[0][6])
+            message.write("Feldolgozás kész! °˖✧◝(⁰▿⁰)◜✧˖°")
+            
+
+        if len(lista1) == 0:
+            if vegyjel.isalpha():
+                message.write("HIBA: Ismeretlen szöveges érték! (⇀‸↼‶)")
+            elif vegyjel.isalpha() == False:
+                message.write(f"Ismeretlen szám érték! (⇀‸↼‶)")
+      
+        
+        if vegyjel == "":
+                message.write("A semmit nem tudom meg keresni!  (--_--)")
+                kimenet.write("")
+                kimenet2.write("") 
+                kimenet3.write("")
+                kimenet4.write("")
+                kimenet5.write("")
+                kimenet6.write("")
+                kimenet7.write("")
+
+        if len(lista1) == 0:
+            felfedezo = cur.execute(f" SELECT * FROM tb WHERE felfedezo LIKE '%{vegyjel}%'")
+            lista2 = []
+            for sor in felfedezo:
+                lista2.append(sor)
+
+            jo = True
+            kimenet.write(lista2[0][1])
+            kimenet2.write(lista2[0][3]) 
+            kimenet3.write(lista2[0][2])
+            kimenet4.write(lista2[0][5])
+            kimenet5.write(lista2[0][4])
+            kimenet6.write(lista2[0][0])
+            kimenet7.write(lista2[0][6])
+            message.write("Feldolgozás kész! °˖✧◝(⁰▿⁰)◜✧˖°")
+
+        
+
+
+           
+                
+
+    </py-script>
+    <script src="script.js"></script>
+    
+
+
+</body>
+
+</html>

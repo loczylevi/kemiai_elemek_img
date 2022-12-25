@@ -1,0 +1,22 @@
+    
+        button[type=button],button[type=reset] {
+        display: block;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform  0.2s;
+        }
+
+
+        button:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+        filter: invert(100%);
+        }
+
+        .cicoma{
+                height:25%;
+                width:25%;
+                border-radius: 20px;
+        }
+
