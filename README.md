@@ -1,0 +1,1 @@
+# kemiai_elemek_img
