@@ -11,40 +11,40 @@ function myFunction() {
                     var kepek = ["elemek/hidrogen.png", "elemek/helium.jpg", "elemek/Limetal.jpeg", "elemek/ber.jpeg", "elemek/bor.jpg", "elemek/szen.jpeg","elemek/nitrogen.png", "elemek/oxigen.jpeg","elemek/fluor.png","elemek/neon.png","elemek/natrium.jpg","elemek/Magnesium.jpg","elemek/alu.jpg","elemek/Silicon.jpg","elemek/foszfor.jpg","elemek/ken.jpg","elemek/klor.jpg","elemek/kalium.jpg","elemek/Argon.jpg","elemek/calcium.jpg","elemek/Scandium.jpg","elemek/Titan.jpg","elemek/Vanadium.jpg","elemek/Chromium.jpg","elemek/mangan.jpg","elemek/Iron.jpg","elemek/nickel.jpg","elemek/kobalt.jpg","elemek/cu.jpg","elemek/Zinc.jpg","elemek/Gallium.png","elemek/Germanium.jpg","elemek/arzen.jpg","elemek/szelen.jpg","elemek/brom.jpg","elemek/kripton.png","elemek/Rubidium.jpg","elemek/Strontium.jpg","elemek/yite.jpg","elemek/cirkonium.jpg","elemek/niobium.jpg","elemek/molibden.jpg","elemek/tech.jpg","elemek/rutenium.jpg","elemek/rhodium.jpg","elemek/palladium.jpg","elemek/silver.jpg","elemek/cadmiun.jpg","elemek/indium.jpg","elemek/Tin.jpg","elemek/antimony.jpg","elemek/jod.jpg","elemek/tellurium.jpg","elemek/xenon.jpg","elemek/Cesium.jpeg","elemek/barium.jpg","elemek/Lanthanum.jpg","elemek/Cerium.jpg","elemek/Praseodymium.jpg","elemek/nd.jpg","elemek/Promethium.jpg","elemek/valami.png","elemek/eu.jpg","elemek/Gadolinium.jpg","elemek/Terbium.jpg","elemek/Dysprosium.jpg","elemek/holmium.jpg","elemek/Erbium.jpg","elemek/Thulium.jpg","elemek/yterbium.jpg","elemek/lulu.jpg","elemek/hafnium.jpg","elemek/ta.png","elemek/volfram.jpg","elemek/rhenium.jpeg","elemek/osmium.jpg","elemek/Iridium.jpg","elemek/platina.jpg","elemek/gold.jpg","elemek/higany.jpg","elemek/Thallium.jpg","elemek/olom.jpg","elemek/Bismuth.jpg","elemek/polonium.jpg","elemek/cucmok.png","elemek/radon.png","elemek/Francium.jpg","elemek/Radium.jpg","elemek/Actinium.png","elemek/papa.png","elemek/th.png","elemek/valami.png","elemek/uranium.jpg","elemek/Americium.jpeg","elemek/pluti.jpg","elemek/valami.png","elemek/berkilium.png","elemek/es.png","elemek/ferm.png","elemek/mende.png","elemek/no.png","elemek/valami.png","elemek/lr.jpeg","elemek/db.png","elemek/Boron_R105.jpg","elemek/valami.png","elemek/Electron_shell_108_hassium.png","elemek/mts.png","elemek/110_darmstadtium_(Ds)_enhanced_Bohr_model.png","elemek/rg.png","elemek/113_nihonium_(Nh)_enhanced_Bohr_model.png","elemek/cn.png","elemek/moszkva.png","elemek/114_flerovium_(Fl)_enhanced_Bohr_model.png","elemek/level.png","elemek/og.png","elemek/vege.jpg"];
                     var listaLength = elemek.length;
                     for (var i = 0; i < listaLength; i++) {
-                      if (elemek[i] == bekeres) {
+                      if (elemek[i].toLowerCase() == bekeres.toLowerCase()) {
                         img.src = kepek[i]
                       }
                       
                     }
                     for (var i = 0; i < listaLength; i++) {
-                      if (evek[i] == bekeres) {
+                      if (evek[i].toLowerCase() == bekeres.toLowerCase()) {
                         img.src = kepek[i]
                       }
                       
                     }
                     for (var i = 0; i < listaLength; i++) {
-                      if (nevek[i] == bekeres) {
+                      if (nevek[i].toLowerCase() == bekeres.toLowerCase()) {
                         img.src = kepek[i]
                       }
                       
                     }
                     
                     for (var i = 0; i < listaLength; i++) {
-                      if (rendszam[i] == bekeres) {
+                      if (rendszam[i].toLowerCase() == bekeres.toLowerCase()) {
                         img.src = kepek[i]
                       }
                       
                     }
 
                     for (var i = 0; i < listaLength; i++) {
-                      if (tomeg[i] == bekeres) {
+                      if (tomeg[i].toLowerCase() == bekeres.toLowerCase()) {
                         img.src = kepek[i]
                       }
                       
                     }
 
                     for (var i = 0; i < listaLength; i++) {
-                      if (neg[i] == bekeres) {
+                      if (neg[i].toLowerCase() == bekeres.toLowerCase()) {
                         img.src = kepek[i]
                       }
                       
